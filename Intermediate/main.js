@@ -4,7 +4,20 @@ var employee = JSON.parse(employeeData);
 console.table(employee);
 
 for(let val of employee){
-
+   let bigSalary = "";
+   let info = "";
+   if(val.salary <= 2500){
+     bigSalary = "danger";
+     info = "Lower Salary";
+   }
+   else if(val.salary <=3000){
+     bigSalary = "warning";
+     info = "Good Salary";
+   }
+   else{
+      bigSalary = "success";
+      info = "High Salary";
+   }
 
  
 
@@ -14,6 +27,7 @@ for(let val of employee){
 
     
        <th scope="row">${val.id}</th>
+       <td class="bg-${bigSalary}">${info}</td>
        <td>${val.firstName}</td>
        <td>${val.lastName}</td>
        <td>${val.emailAddress}</td>
